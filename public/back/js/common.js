@@ -58,11 +58,6 @@ if (location.href.indexOf("login.html") === -1) {
 
 
 
-
-
-
-
-
 $(function () {
 
     // 1. 分类管理的切换功能
@@ -83,6 +78,7 @@ $(function () {
     $('.icon-logout').click(function () {
         $('#logoutModal').modal("show");
     });
+    
     // 4.点击模态框退出按钮
     $('#logoutBtn').click(function () {
         // 发送 Ajax 请求，进行退出

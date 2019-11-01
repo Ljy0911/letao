@@ -98,8 +98,8 @@ ul {
 
 /*----------- 右侧主体部分 ------------------------*/
 .lt-main {
-    height: 1000px;
-    background-color: pink;
+    /* height: 1000px; */
+    /* background-color: pink; */
     padding-left: 180px;
     padding-top: 50px;
     transition: all 1s;
@@ -129,4 +129,10 @@ ul {
     text-align: center;
     color: #fff;
     font-size: 20px;
+}
+
+.lt-main .lt-content .echarts_1,
+.lt-main .lt-content .echarts_2 {
+    width: 48%;
+    height: 400px;
 }
