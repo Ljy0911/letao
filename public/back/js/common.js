@@ -28,3 +28,75 @@ $(document).ajaxStop(function () {
     // 结束进度条
     NProgress.done();
 });
+
+// 登录拦截功能 (登录页不需要校验)
+// 前后分离 前端不知道该用户是否登录
+// 发送ajax 请求 查询用户状态
+// (1) 已登录 什么也不做，用户可以进行访问
+// (2) 未登录 拦截到登录页
+
+// 判断是否是登录页 不是登录页就需要登录拦截
+if (location.href.indexOf("login.html") === -1) {
+    $.ajax({
+        type: "get",
+        url: "/employee/checkRootLogin",
+        gataType: "json",
+        success: function (info) {
+            // console.log(info);
+            if (info.success) {
+                // 已登录，让用户继续访问
+                // console.log("已登陆");
+            }
+            if (info.error === 400) {
+                // 未登录，拦截到登录页
+                location.href = "login.html";
+            }
+        }
+
+    })
+}
+
+
+
+
+
+
+
+
+$(function () {
+
+    // 1. 分类管理的切换功能
+    $('.nav .category').click(function () {
+        // slideDown() 方法通过使用滑动效果，显示隐藏的被选元素
+        // slideUp() 通过使用滑动效果，隐藏被选元素，如果元素已显示出来的话
+        // slideToggle() 方法通过使用滑动效果（高度变化）来切换元素的可见状态
+        $('.nav .child').stop().slideToggle();
+    });
+
+    // 2. 左侧侧边栏切换功能
+    $('.icon-menu').click(function () {
+        $('.lt-aside').toggleClass('hidemenu');
+        $('.lt-topbar').toggleClass('hidemenu');
+        $('.lt-main').toggleClass('hidemenu');
+    });
+    // 3. 点击topbar退出功能，弹出模态框
+    $('.icon-logout').click(function () {
+        $('#logoutModal').modal("show");
+    });
+    // 4.点击模态框退出按钮
+    $('#logoutBtn').click(function () {
+        // 发送 Ajax 请求，进行退出
+        $.ajax({
+            type: "get",
+            url: "/employee/employeeLogout",
+            dataTyoe: "json",
+            success: function (info) {
+                // console.log(info);
+                if (info.success) {
+                    // 退出成功,跳转到登录页
+                    location.href = "login.html";
+                }
+            }
+        })
+    });
+})
