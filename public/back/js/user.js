@@ -1,12 +1,14 @@
 
 $(function () {
 
-    var currentPage = 1;
-    var pageSize = 5;
+    var currentPage = 1; // 当前页
+    var pageSize = 5; // 每页多少条
+
+    var currentId;
+    var isDelete;
     // 1. 一进入页面，发送 ajax 请求，
     // 获取用户列表数据，通过模板引擎渲染
     render();
-
     function render() {
         $.ajax({
             type: "get",
@@ -17,6 +19,7 @@ $(function () {
             },
             dataType: "json",
             success: function (info) {
+                console.log(info);
                 // template( 模板 id，数据对象 )
                 // 在模板中可以任意使用 数据对象中的属性
                 var htmlStr = template('tpl', info);
@@ -39,6 +42,35 @@ $(function () {
 
         });
     }
+    // 2. 点击启用按钮显示模态框 通过事件委托
+    $('tbody').on("click", ".btn", function () {
+        $('#userModal').modal("show");
+        // 获取用户id
+        currentId = $(this).parent().data("id");
+        isDelete = $(this).hasClass("btn-danger") ? 0 : 1;
+    });
 
+    // 3. 点击确认，发送ajax请求，修改用户状态
+    $('#submitBtn').click(function () {
+
+        $.ajax({
+            type: "post",
+            url: "/user/updateUser",
+            data: {
+                id: currentId,
+                isDelete: isDelete
+            },
+            dataType: "json",
+            success: function (info) {
+                // 关闭模态框
+                // 重新渲染页面
+                if (info.success) {
+                    $('#userModal').modal("hide");
+                    render();
+                }
+            }
+
+        });
+    })
 
 })
