@@ -42,6 +42,7 @@ $(function () {
 
         });
     }
+    
     // 2. 点击启用按钮显示模态框 通过事件委托
     $('tbody').on("click", ".btn", function () {
         $('#userModal').modal("show");
