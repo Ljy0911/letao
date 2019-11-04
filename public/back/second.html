@@ -143,7 +143,44 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <div class="col-sm-12">
-                                <input type="text" name="categoryName" class="form-control" placeholder="请输入一级分类">
+
+                                <!-- Single button -->
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span id="dropdownText">请选择一级分类</span>
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <!-- 挖个坑 -->
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- 隐藏域 type="text" 改为 type="hidden"-->
+                            <input type="hidden" name="categoryId">
+                            <!-- 火热的品牌，写死 值为1 -->
+                            <input type="hidden" name="hot" value="1">
+
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="text" name="brandName " class="form-control" placeholder="请输入二级分类">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <label class="btn btn-default" for="fileupload">上传图片</label>
+                                <!-- name 将来后台用于接收文件 -->
+                                <!-- data-url 指定图片上传时的接口地址 -->
+                                <!-- multiple 指定多文件上传 -->
+                                <input type="file" id="fileupload" name="pic1"
+                                 data-url="/category/addSecondCategoryPic" style="display: none;"> 
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12" id="imgBox">
+                                <img src="./images/none.png" width="100" alt="" srcset="">
+                                <input type="hidden" name="brandLogo">
                             </div>
                         </div>
                     </div>
@@ -165,6 +202,14 @@
         </tr>
         {{ /each }}
     </script>
+
+    <script type="text/html" id="dropdownTpl">
+        {{ each rows v i}}
+            <li>
+                <a href="#" data-id="{{ v.id }}">{{ v.categoryName }}</a>
+            </li>
+        {{ /each }}
+    </script>
     <script src="./lib/jquery/jquery.min.js"></script>
     <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
     <!-- 表单校验 -->
@@ -172,6 +217,11 @@
     <script src="./lib/nprogress/nprogress.js"></script>
     <script src="./lib/artTemplate/template-web.js"></script>
     <script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+    <!-- 文件上传引包 -->
+    <script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+    <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
+    <!-- 解决跨域问题时引的包 此处不用引 -->
+    <!-- <script src="./lib/jquery-fileupload/jquery.iframe-transport.js"></script> -->
     <script src="./js/common.js"></script>
     <script src="./js/second.js"></script>
 </body>
