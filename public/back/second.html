@@ -143,7 +143,6 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <div class="col-sm-12">
-
                                 <!-- Single button -->
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -152,19 +151,19 @@
                                     </button>
                                     <ul class="dropdown-menu">
                                         <!-- 挖个坑 -->
-
                                     </ul>
                                 </div>
+                                <!-- 隐藏域 type="text" 改为 type="hidden"-->
+                                <input type="hidden" name="categoryId">
+                                <!-- 火热的品牌，写死 值为1 -->
+                                <input type="hidden" name="hot" value="1">
                             </div>
-                            <!-- 隐藏域 type="text" 改为 type="hidden"-->
-                            <input type="hidden" name="categoryId">
-                            <!-- 火热的品牌，写死 值为1 -->
-                            <input type="hidden" name="hot" value="1">
+
 
                         </div>
                         <div class="form-group">
                             <div class="col-sm-12">
-                                <input type="text" name="brandName " class="form-control" placeholder="请输入二级分类">
+                                <input type="text" name="brandName" class="form-control" placeholder="请输入二级分类">
                             </div>
                         </div>
                         <div class="form-group">
@@ -173,8 +172,7 @@
                                 <!-- name 将来后台用于接收文件 -->
                                 <!-- data-url 指定图片上传时的接口地址 -->
                                 <!-- multiple 指定多文件上传 -->
-                                <input type="file" id="fileupload" name="pic1"
-                                 data-url="/category/addSecondCategoryPic" style="display: none;"> 
+                                <input type="file" id="fileupload" name="pic1" data-url="/category/addSecondCategoryPic" style="display: none;">
                             </div>
                         </div>
                         <div class="form-group">
