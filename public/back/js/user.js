@@ -25,7 +25,7 @@ $(function () {
                 var htmlStr = template('tpl', info);
                 $('tbody').html(htmlStr);
 
-                // 分页初始化
+                // 分页初始化 
                 $('#paginator').bootstrapPaginator({
                     // 配置 bootstrap 版本
                     bootstrapMajorVersion: 3,//默认是2，如果是bootstrap3版本，这个参数必填

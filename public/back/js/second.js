@@ -88,7 +88,8 @@ $(function () {
 
             // 将图片地址设置给 input
             $('[name="brandLogo"]').val(imgUrl);
-            // 手打重置 将隐藏域校验状态，设置成校验成功状态 updateStatus
+
+            // 手动重置 将隐藏域校验状态，设置成校验成功状态 updateStatus
             $('#form').data("bootstrapValidator").updateStatus("brandLogo", "VALID");
 
         }
