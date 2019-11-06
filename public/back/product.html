@@ -159,6 +159,8 @@
                                 <!-- 隐藏域 type="text" 改为 type="hidden"-->
                                 <!-- 存储品牌 name="brandId" -->
                                 <input type="hidden" name="brandId">
+                                <!-- 产品上下架 默认上架 值为 1 -->
+                                <input type="hidden" name="statu">
                             </div>
                         </div>
                         <!-- 商品名称 -->
@@ -204,14 +206,17 @@
                                 <!-- name 将来后台用于接收文件 -->
                                 <!-- data-url 指定图片上传时的接口地址 -->
                                 <!-- multiple 指定多文件上传 -->
-                                <input type="file" id="fileupload" name="pic1" data-url="/category/addSecondCategoryPic" style="display: none;">
+                                <input type="file" id="fileupload" name="pic1" multiple
+                                 data-url="/product/addProductPic"  style="display: none;">
+
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-12" id="imgBox">
-                                <img src="./images/none.png" width="100" alt="" srcset="">
-                                <img src="./images/none.png" width="100" alt="" srcset="">
-                                <img src="./images/none.png" width="100" alt="" srcset="">
+                                <!-- 通过 js 添加 -->
+
+                                <!-- 用于标记当前图片上传的状态 -->
+                                <input type="hidden" name="picStatus">
                             </div>
                         </div>
                     </div>
