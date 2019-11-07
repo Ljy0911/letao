@@ -40,6 +40,10 @@
   height: 50px;
   margin: 0 auto;
 }
-.lt-category-right p {
+.lt-category-right li p {
   text-align: center;
+}
+/* 没有更多分类信息了 样式 */
+.lt-category-right .tips {
+  padding: 10px;
 }

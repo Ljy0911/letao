@@ -41,48 +41,7 @@
                     <div class="mui-scroll">
                         <!--这里放置真实显示的DOM内容-->
                         <ul>
-                            <li>
-                                <a href="#" class="current">运动馆</a>
-                            </li>
-                            <li>
-                                <a href="#">运动馆</a>
-                            </li>
-                            <li>
-                                <a href="#">运动馆</a>
-                            </li>
-                            <li>
-                                <a href="#">运动馆</a>
-                            </li>
-                            <li>
-                                <a href="#">运动馆</a>
-                            </li>
-                            <li>
-                                <a href="#">运动馆</a>
-                            </li>
-                            <li>
-                                <a href="#">运动馆</a>
-                            </li>
-                            <li>
-                                <a href="#">运动馆</a>
-                            </li>
-                            <li>
-                                <a href="#">运动馆</a>
-                            </li>
-                            <li>
-                                <a href="#">运动馆</a>
-                            </li>
-                            <li>
-                                <a href="#">运动馆</a>
-                            </li>
-                            <li>
-                                <a href="#">运动馆</a>
-                            </li>
-                            <li>
-                                <a href="#">运动馆</a>
-                            </li>
-                            <li>
-                                <a href="#">运动馆</a>
-                            </li>
+                            <!-- 挖个坑 -->
                         </ul>
                     </div>
                 </div>
@@ -93,60 +52,7 @@
                     <div class="mui-scroll">
                         <!--这里放置真实显示的DOM内容-->
                         <ul class="mui-clearfix">
-                            <li>
-                                <a href="#">
-                                    <img src="./images/brand1.png" alt="">
-                                    <p>耐克</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="./images/brand1.png" alt="">
-                                    <p>耐克</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="./images/brand1.png" alt="">
-                                    <p>耐克</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="./images/brand1.png" alt="">
-                                    <p>耐克</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="./images/brand1.png" alt="">
-                                    <p>耐克</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="./images/brand1.png" alt="">
-                                    <p>耐克</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="./images/brand1.png" alt="">
-                                    <p>耐克</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="./images/brand1.png" alt="">
-                                    <p>耐克</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img src="./images/brand1.png" alt="">
-                                    <p>耐克</p>
-                                </a>
-                            </li>
+                            <!-- 挖个坑 -->
                         </ul>
                     </div>
                 </div>
@@ -182,11 +88,38 @@
             </ul>
         </div>
     </div>
+    <!-- 左侧模板 -->
+    <script type="text/html" id="leftTpl">
+        {{ each rows v i }}
+            <li>
+                <a href="#" class="{{ i === 0 ? "current" : "" }}"
+                 data-id="{{ v.id }}">{{ v.categoryName }}</a>
+            </li>
+        {{ /each }}
+    </script>
+    <!-- 右侧模板 -->
+    <script type="text/html" id="rightTpl">
+        {{ if rows.length === 0}}
+            <p class="tips">没有更多分类信息了</p>
+        {{ else }}
+            {{ each rows v i }}
+                <li>
+                    <a href="#" >
+                        <img src="{{ v.brandLogo}}" alt="">
+                        <p>{{ v.brandName }}</p>
+                    </a>
+                </li>
+            {{ /each }}
+        {{ /if }}
+            
+    </script>
+    
 
     <script src="./lib/mui/js/mui.js"></script>
     <script src="./lib/zepto/zepto.min.js"></script>
+    <script src="./lib/artTemplate/template-web.js"></script>
     <script src="./js/common.js"></script>
-
+    <script src="./js/category.js"></script>
 </body>
 
 </html>
