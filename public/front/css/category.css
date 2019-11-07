@@ -1,0 +1,45 @@
+.lt-category-left {
+  width: 90px;
+  height: 100%;
+  float: left;
+  position: relative;
+}
+.lt-category-left li a {
+  display: block;
+  height: 50px;
+  width: 90px;
+  line-height: 50px;
+  text-align: center;
+  color: #666;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  background-color: #e3e4e5;
+}
+.lt-category-left li a.current {
+  background-color: #fff;
+  border-right: none;
+}
+
+.lt-category-right {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.lt-category-right li {
+  float: left;
+  width: 33.33%;
+}
+.lt-category-right a {
+  display: block;
+}
+.lt-category-right img {
+  /*img 在 common.css 中转成块级元素 
+  应该使用margin: 0 auto; 居中 */
+  width: 70px;
+  height: 50px;
+  margin: 0 auto;
+}
+.lt-category-right p {
+  text-align: center;
+}
