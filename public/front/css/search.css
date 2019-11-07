@@ -1,0 +1,48 @@
+.lt-search {
+    padding: 10px;
+    position: relative;
+}
+.lt-search .search-input {
+    height: 34px;
+    line-height: 34px;
+    font-size: 12px;
+    border: 1px solid #007AFF;
+    border-radius: 5px;
+    margin: 0;
+    padding: 0;
+    padding-left: 15px;
+    padding-right: 55px;
+}
+.lt-search .search-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border-radius: 0 5px 5px 0;
+}
+
+.lt-history {
+    padding: 10px;
+    font-size: 12px;
+    color: #666;
+}
+.lt-history .title {
+    height: 30px;
+    line-height: 30px;
+}
+.lt-history .content {
+    border: 1px dashed red;
+}
+.lt-history .content li {
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px dashed red;
+}
+.lt-history .content li:last-child {
+    border-bottom: none;
+}
+.lt-history .content li a {
+    padding: 0 10px;
+}
+.lt-history .content li i {
+    line-height: 30px;
+}
