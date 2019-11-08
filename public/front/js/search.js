@@ -87,6 +87,7 @@ $(function () {
         var key = $(".search-input").val().trim();
         if (key === "") {
             alert("qing");
+            return;
         }
         var arr = getHistory();
         // 去除重复项
