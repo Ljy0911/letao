@@ -108,6 +108,8 @@ $(function () {
         render();
         // 清空 输入框
         $(".search-input").val("");
+        // 添加跳转
+        location.href = "searchList.html?key="+ key;
     });
 
 
