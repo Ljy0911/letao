@@ -86,7 +86,7 @@ $(function () {
     $(".search-btn").click(function () {
         var key = $(".search-input").val().trim();
         if (key === "") {
-            alert("qing");
+            mui.toast("请输入搜索关键字");
             return;
         }
         var arr = getHistory();
