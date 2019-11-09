@@ -69,7 +69,7 @@
                     <!-- 产品 -->
                     <div class="lt-product">
                         <!-- 挖个坑 -->
-                        <div class="loading"></div>
+                        <!-- <div class="loading"></div> -->
                     </div>
 
                 </div>
@@ -111,7 +111,7 @@
         <ul class="mui-clearfix">
             {{ each data v i}}
                 <li class="lt-product-item">
-                    <a href="#">
+                    <a href="product.html?productId={{ v.id }}" data-id="{{ v.id }}">
                         <img src="{{ v.pic[0].picAddr }}" alt="">
                         <!-- 两行溢出 class="mui-ellipsis-2" -->
                         <p class="mui-ellipsis-2">{{ v.proName }}</p>
