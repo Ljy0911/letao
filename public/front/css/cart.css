@@ -1,0 +1,28 @@
+.lt-main .cart-item {
+    height: 110px;
+}
+.lt-main .cart-img {
+    float: left;
+    width: 60px;
+    height: 90px;
+}
+.lt-main .cart-info {
+    overflow: hidden;
+    padding: 0 10px;
+    height: 90px;
+}
+.lt-main .cart-info .pro-name {
+    color: #000;
+}
+.lt-main .cart-info .price {
+    color: red;
+}
+.lt-main .cart-info .oldPrice {
+    text-decoration: line-through;
+}
+
+/* mui-table-cell 默认 display：table-cell 默认由内容撑开 */
+.lt-main .mui-table-cell {
+    display: block;
+}
+
