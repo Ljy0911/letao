@@ -26,3 +26,9 @@
     display: block;
 }
 
+.lt-size {
+    text-align: left;
+}
+.lt-num {
+    text-align: left;
+}

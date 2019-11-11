@@ -11,6 +11,7 @@ $(function () {
                 url: "/cart/queryCart",
                 dataType: "json",
                 success: function (info) {
+                    console.log(info);
                     if (info.error === 400) {
                         // 未登录
                         location.href = "login.html";
@@ -48,14 +49,14 @@ $(function () {
     // (2) 获取按钮中存储的 data-id
     // (3) 发送ajax请求，执行删除
     // (4) 页面重新渲染
-    $(".lt-main").on("tap",".btn-del",function () {
+    $(".lt-main").on("tap", ".btn-del", function () {
         var id = $(this).data("id");
         $.ajax({
             type: "get",
             url: "/cart/deleteCart",
             // 后台要求传的id 是数组形式
             data: {
-                id: [ id ],
+                id: [id],
             },
             dataType: "json",
             success: function (info) {
@@ -67,4 +68,54 @@ $(function () {
             }
         });
     });
+
+    // 4. 编辑功能
+    $(".lt-main").on("tap", ".btn-edit", function () {
+        // html5 中 dataset 可以一次性获取所有的 自定义属性
+        var obj = this.dataset;
+
+        // 生成 htmlStr
+        var htmlStr = template("editTpl", obj);
+
+        // mui 将 \n 换行标记 解析成 <br>
+        // 需要将 \n 去掉
+        htmlStr = htmlStr.replace(/\n/g, "");
+
+        // 弹出确认框
+        // 确认框的内容支持传递 html  模板
+        mui.confirm(htmlStr, "编辑商品", ["确认", "取消"], function (e) {
+            if (e.index === 0) {
+                // 点击确认 获取尺码 数量 id 进行ajax 提交
+                var size = $(".lt-size span.current").text();
+                var num = $(".mui-numbox-input").val();
+                var id = obj.id;
+                $.ajax({
+                    type: "post",
+                    url: "/cart/updateCart",
+                    data: {
+                        id: id,
+                        size: size,
+                        num: num,
+                    },
+                    dataType: "json",
+                    success: function (info) {
+                        console.log(info);
+                        if (info.success) {
+                            mui('.mui-scroll-wrapper').pullRefresh().pulldownLoading();
+                        }
+                    }
+                });
+            }
+        });
+        // 进行数字框 初始化
+        mui(".mui-numbox").numbox();
+
+    });
+    // 5. 让尺码可以选择
+    $("body").on("click", ".lt-size span", function () {
+        $(this).addClass("current").siblings().removeClass("current");
+    });
+
+
+
 })
